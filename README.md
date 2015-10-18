@@ -1,1 +1,2 @@
 # Pong
+ This is a workthrough of a tutorial I found online. I worked through the project on my own hence custom coloring and naming/comments; however, credit for it goes to https://robots.thoughtbot.com/pong-clone-in-javascript cusomization I am in the midst of working on/later pushes will consist of adding in a scoreboard, adjusting the speed at which the ball travels, and hopefully a two player mode. Thanks for checking it out.
