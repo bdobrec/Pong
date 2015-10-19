@@ -4,7 +4,7 @@ var animate = window.requestAnimationFrame ||
   function(callback) { window.setTimeout(callback, 1000/60) };
 
 var canvas = document.createElement('canvas');
-var width = 400;
+var width = 600;
 var height = 600;
 canvas.width = width;
 canvas.height = height;
@@ -75,8 +75,9 @@ Ball.prototype.render = function() {
 };
 
 var player = new Player();
+var player2 = new Player();
 var computer = new Computer();
-var ball = new Ball(200, 300);
+var ball = new Ball(300, 300);
 
 var render = function() {
   context.fillStyle = "#FFFFFF";
@@ -110,15 +111,15 @@ Ball.prototype.update = function(paddle1, paddle2) {
   if(this.x - 5 < 0) { // hitting the left wall
     this.x = 5;
     this.x_speed = -this.x_speed;
-  } else if(this.x + 5 > 400) { // hitting the right wall
-    this.x = 395;
+  } else if(this.x + 5 > 600) { // hitting the right wall
+    this.x = 595;
     this.x_speed = -this.x_speed;
   }
 
   if(this.y < 0 || this.y > 600) { // a point was scored
     this.x_speed = 0;
     this.y_speed = 3;
-    this.x = 200;
+    this.x = 300;
     this.y = 300;
   }
 
@@ -172,11 +173,11 @@ Paddle.prototype.move = function(x, y) {
   this.y += y;
   this.x_speed = x;
   this.y_speed = y;
-  if(this.x < 0) { // all the way to the left
+  if(this.x < 0) { // Leftmost Wall
     this.x = 0;
     this.x_speed = 0;
-  } else if (this.x + this.width > 400) { // all the way to the right
-    this.x = 400 - this.width;
+  } else if (this.x + this.width > 600) { // Rightmost Wall
+    this.x = 600 - this.width;
     this.x_speed = 0;
   }
 };
@@ -198,8 +199,8 @@ Computer.prototype.update = function(ball) {
   this.paddle.move(diff, 0);
   if(this.paddle.x < 0) {
     this.paddle.x = 0;
-  } else if (this.paddle.x + this.paddle.width > 400) {
-    this.paddle.x = 400 - this.paddle.width;
+  } else if (this.paddle.x + this.paddle.width > 600) {
+    this.paddle.x = 600 - this.paddle.width;
   }
 };
 
